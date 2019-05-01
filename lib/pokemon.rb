@@ -1,6 +1,7 @@
 
+require 'pry'
 class Pokemon
-  attr_accessor :name, :type
+  attr_accessor :name, :type, :hp
   attr_reader :db, :id
 
   @@all= []
@@ -27,5 +28,12 @@ class Pokemon
     self.new(id:array[0], name:array[1], type:array[2], db:db)
 end
 
+def alter_hp(new_hp, db)
+
+  sql = "UPDATE pokemon SET hp=#{new_hp} WHERE pokemon.id =#{self.id}"
+
+  db.execute(sql)
 
 end
+end
+0
